@@ -57,12 +57,12 @@ class Reader:
         was_exceptions = False
         for str_host, ports in self.value:
             try:
-                a = SiteInfo(str_to_host(str_host), str_to_ports(ports))
+                site = SiteInfo(str_to_host(str_host), str_to_ports(ports))
             except Exception as e:
                 print(e)
                 was_exceptions = True
             else:
-                yield a
+                yield site
         if was_exceptions:
             input("Press enter to exit . . . ")
             exit()
